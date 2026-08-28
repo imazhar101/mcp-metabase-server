@@ -367,10 +367,13 @@ export class DatabaseToolHandlers {
       throw new McpError(ErrorCode.InvalidParams, "Database ID is required");
     }
 
-    const tables = await this.client.apiCall(
+    // `/api/database/{id}/tables` was removed from the Metabase API; the
+    // supported route now returns tables via the `include` param.
+    const database = await this.client.apiCall(
       "GET",
-      `/api/database/${database_id}/tables`
+      `/api/database/${database_id}?include=tables`
     );
+    const tables = database?.tables ?? [];
     return {
       content: [
         {

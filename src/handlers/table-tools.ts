@@ -279,10 +279,17 @@ export class TableToolHandlers {
 
   private async listTables(args: any): Promise<any> {
     const { database_id } = args ?? {};
-    const endpoint = database_id
-      ? `/api/database/${database_id}/tables`
-      : `/api/table`;
-    const tables = await this.client.apiCall("GET", endpoint);
+    if (database_id) {
+      // `/api/database/{id}/tables` was removed from the Metabase API; the
+      // supported route now returns tables via the `include` param.
+      const database = await this.client.apiCall(
+        "GET",
+        `/api/database/${database_id}?include=tables`
+      );
+      const tables = database?.tables ?? [];
+      return { content: [{ type: "text", text: JSON.stringify(tables, null, 2) }] };
+    }
+    const tables = await this.client.apiCall("GET", `/api/table`);
     return { content: [{ type: "text", text: JSON.stringify(tables, null, 2) }] };
   }
 
