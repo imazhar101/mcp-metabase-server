@@ -1,5 +1,5 @@
 # Metabase MCP Server Docker Image
-# Developed by EaseCloud Technologies (https://easecloud.io)
+# Fork of @easecloudio/mcp-metabase-server, maintained by imazhar101
 
 # Build stage
 FROM node:18-alpine AS builder

@@ -35,7 +35,7 @@ function getCacheDir(metabaseUrl: string): string {
     .update(metabaseUrl)
     .digest("hex")
     .slice(0, 12);
-  return path.join(os.homedir(), ".easecloud", "metabase-mcp", "cache", urlHash);
+  return path.join(os.homedir(), ".mcp-metabase-server", "cache", urlHash);
 }
 
 function getCacheFilePath(metabaseUrl: string, databaseId: number): string {

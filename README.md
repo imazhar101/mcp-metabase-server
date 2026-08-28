@@ -1,20 +1,20 @@
 # Metabase MCP Server
 
-[![npm version](https://img.shields.io/npm/v/@easecloudio/mcp-metabase-server)](https://www.npmjs.com/package/@easecloudio/mcp-metabase-server)
+[![npm version](https://img.shields.io/npm/v/@imazhar101/mcp-metabase-server)](https://www.npmjs.com/package/@imazhar101/mcp-metabase-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![GitHub](https://img.shields.io/badge/GitHub-easecloudio%2Fmcp--metabase--server-blue)](https://github.com/easecloudio/mcp-metabase-server)
+[![GitHub](https://img.shields.io/badge/GitHub-imazhar101%2Fmcp--metabase--server-blue)](https://github.com/imazhar101/mcp-metabase-server)
 
 A **Model Context Protocol (MCP) server for Metabase** that gives AI assistants full access to your analytics platform — dashboards, cards, databases, tables, collections, and more.
 
-**Developed and maintained by [EaseCloud](https://easecloud.io)** — cloud-native, AI-driven, and data infrastructure solutions.
+Fork of [`@easecloudio/mcp-metabase-server`](https://github.com/easecloudio/mcp-metabase-server), maintained by [Azhar Sirajuddin](https://github.com/imazhar101). Fixes `list_tables`/`get_database_tables`, which 404 on current Metabase versions because upstream still calls the removed `GET /api/database/{id}/tables` route instead of `GET /api/database/{id}?include=tables`.
 
 ## Quick Start
 
 ```bash
 export METABASE_URL=https://your-metabase-instance.com
 export METABASE_API_KEY=your_metabase_api_key
-npx @easecloudio/mcp-metabase-server
+npx @imazhar101/mcp-metabase-server
 ```
 
 ## 96 Tools Available
@@ -39,13 +39,13 @@ npx @easecloudio/mcp-metabase-server
 ### npx (Recommended)
 
 ```bash
-npx @easecloudio/mcp-metabase-server
+npx @imazhar101/mcp-metabase-server
 ```
 
 ### Global install
 
 ```bash
-npm install -g @easecloudio/mcp-metabase-server
+npm install -g @imazhar101/mcp-metabase-server
 mcp-metabase-server
 ```
 
@@ -109,7 +109,7 @@ Windows: `%APPDATA%/Claude/claude_desktop_config.json`
   "mcpServers": {
     "metabase": {
       "command": "npx",
-      "args": ["@easecloudio/mcp-metabase-server"],
+      "args": ["@imazhar101/mcp-metabase-server"],
       "env": {
         "METABASE_URL": "https://your-metabase-instance.com",
         "METABASE_API_KEY": "your_metabase_api_key"
@@ -126,7 +126,7 @@ Windows: `%APPDATA%/Claude/claude_desktop_config.json`
   "mcpServers": {
     "metabase": {
       "command": "npx",
-      "args": ["@easecloudio/mcp-metabase-server"],
+      "args": ["@imazhar101/mcp-metabase-server"],
       "env": {
         "METABASE_URL": "https://your-metabase-instance.com",
         "METABASE_API_KEY": "your_metabase_api_key",
@@ -161,7 +161,7 @@ Windows: `%APPDATA%/Claude/claude_desktop_config.json`
   "mcpServers": {
     "metabase": {
       "command": "npx",
-      "args": ["@easecloudio/mcp-metabase-server"],
+      "args": ["@imazhar101/mcp-metabase-server"],
       "env": {
         "METABASE_URL": "https://your-metabase-instance.com",
         "METABASE_USERNAME": "your_username",
@@ -388,7 +388,7 @@ These tools enable an AI to convert native SQL questions into interactive MBQL q
 3. AI translates SQL → MBQL using the cached field IDs
 4. `create_card` — save the new interactive question
 
-Cache is stored at `~/.easecloud/metabase-mcp/cache/{url-hash}/` with a 24-hour TTL and scoped per Metabase instance.
+Cache is stored at `~/.mcp-metabase-server/cache/{url-hash}/` with a 24-hour TTL and scoped per Metabase instance.
 
 | Tool | Description |
 |---|---|
@@ -431,27 +431,15 @@ npm run inspector
 
 The Inspector provides a browser UI for sending tool calls and inspecting responses.
 
-## About EaseCloud
+## Credits
 
-EaseCloud is a cloud consulting and solutions company specializing in:
-
-- Cloud-native application development
-- AI & automation integrations
-- DevOps and infrastructure management
-- Data analytics and BI platform consulting
-
-We built this project to contribute to the open-source MCP ecosystem while demonstrating our expertise in integration, automation, and cloud solutions.
-
-If your team is adopting Metabase at scale or looking to integrate AI with your BI stack, [get in touch](https://easecloud.io) — we provide consulting, customization, and managed support for enterprises.
-
-📧 [support@easecloud.io](mailto:support@easecloud.io)
-🌐 [easecloud.io](https://easecloud.io)
+Originally built by [EaseCloud](https://easecloud.io); this fork is independently maintained by [Azhar Sirajuddin](https://github.com/imazhar101) and is not affiliated with or supported by EaseCloud. For issues or support, use [this repo's issue tracker](https://github.com/imazhar101/mcp-metabase-server/issues).
 
 ## Bug Reports & Issues
 
 Found a bug or have a feature request?
 
-🐛 [Create a GitHub issue](https://github.com/easecloudio/mcp-metabase-server/issues)
+🐛 [Create a GitHub issue](https://github.com/imazhar101/mcp-metabase-server/issues)
 
 Please include:
 - Metabase version
@@ -462,7 +450,7 @@ Please include:
 
 ## Contributing
 
-Contributions are welcome. Visit the [GitHub repository](https://github.com/easecloudio/mcp-metabase-server) to submit issues or pull requests.
+Contributions are welcome. Visit the [GitHub repository](https://github.com/imazhar101/mcp-metabase-server) to submit issues or pull requests.
 
 ## License
 

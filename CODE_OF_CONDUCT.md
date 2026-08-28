@@ -59,8 +59,8 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at
-support@easecloud.io.
+reported to the maintainer by opening a GitHub issue on
+[imazhar101/mcp-metabase-server](https://github.com/imazhar101/mcp-metabase-server/issues).
 All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the

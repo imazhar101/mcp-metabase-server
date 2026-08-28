@@ -1,7 +1,7 @@
 # Contributing to metabase-server MCP Server
 
 👋 Thanks for your interest in contributing! We’re excited to have you here.  
-This project is maintained by **EaseCloud Technologies** (https://easecloud.io), and we welcome contributions from the community to make it better.  
+This is a fork of [`@easecloudio/mcp-metabase-server`](https://github.com/easecloudio/mcp-metabase-server), independently maintained by [Azhar Sirajuddin](https://github.com/imazhar101), and we welcome contributions from the community to make it better.  
 
 ---
 
@@ -31,7 +31,7 @@ This project is maintained by **EaseCloud Technologies** (https://easecloud.io),
 ### 3. Development Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/easecloudio/mcp-metabase-server.git
+   git clone https://github.com/imazhar101/mcp-metabase-server.git
    cd mcp-metabase-server
    ```
 2. Install dependencies:
@@ -53,16 +53,13 @@ This project is maintained by **EaseCloud Technologies** (https://easecloud.io),
 ---
 
 ## 💡 Why Contribute?
-By contributing, you’re not just improving this project — you’re helping  **EaseCloud Technologies** (https://easecloud.io) in our mission to make **cloud infrastructure simpler, smarter, and more accessible for businesses of all sizes**.  
-
-Our vision is to **empower teams to innovate without being slowed down by complex technology**, enabling startups and enterprises alike to build, scale, and operate with confidence.  
+By contributing, you’re helping keep this MCP server working correctly against current Metabase API versions for everyone who depends on it.
 
 We’ll give credit where due and highlight active contributors in the community.  
 ---
 
 ## 📬 Need Help?
 - Open an issue on GitHub  
-- Reach us at: support@easecloud.io  
 
 ---
 
