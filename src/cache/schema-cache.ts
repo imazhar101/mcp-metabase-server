@@ -39,6 +39,11 @@ function getCacheDir(metabaseUrl: string): string {
 }
 
 function getCacheFilePath(metabaseUrl: string, databaseId: number): string {
+  if (!Number.isInteger(databaseId) || databaseId <= 0) {
+    throw new Error(
+      `Invalid database_id for schema cache: ${JSON.stringify(databaseId)}`
+    );
+  }
   return path.join(getCacheDir(metabaseUrl), `database_${databaseId}.json`);
 }
 
@@ -84,11 +89,14 @@ export async function writeSchemaCache(
 ): Promise<void> {
   const filePath = getCacheFilePath(metabaseUrl, schema.database_id);
   const dir = path.dirname(filePath);
-  await fs.mkdir(dir, { recursive: true });
+  await fs.mkdir(dir, { recursive: true, mode: 0o700 });
 
   // Fix 1: write to a .tmp file first, then atomically rename to the real path
   const tmpPath = `${filePath}.tmp`;
-  await fs.writeFile(tmpPath, JSON.stringify(schema, null, 2), "utf-8");
+  await fs.writeFile(tmpPath, JSON.stringify(schema, null, 2), {
+    encoding: "utf-8",
+    mode: 0o600,
+  });
   await fs.rename(tmpPath, filePath);
 }
 
