@@ -63,5 +63,10 @@
   "devDependencies": {
     "@types/node": "20.17.22",
     "typescript": "5.3.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "follow-redirects": ">=1.16.2"
+    }
   }
 }
